@@ -12,7 +12,15 @@ def calcdistance (locA, locB):
     
     totaldistance=(xdis**2 + ydis**2 + zdis**2)**0.5
     return totaldistance
-    
+
+def transfer():
+    choice = input("mars is a transfer station, where else do you want to go")
+    if choice == "pavo":
+        print("The distance is", calcdistance(pavo,user))
+    elif choice == "starting point":
+        print("the distance is 42.76680956068619, welcome back")
+        
+        
 def navigate():
     choice=input("where do you want to go")
     
@@ -21,12 +29,7 @@ def navigate():
        
         user==pavo
         
-        def transfer():
-            choice == input("mars is a transfer station, where else do you want to go")
-            if choice == "pavo":
-                print("The distance is", calcdistance(pavo,user))
-            elif choice == "starting point":
-                print("the distance is 42.76680956068619, welcome back")
+
         transfer()
         
         
