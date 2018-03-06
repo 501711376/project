@@ -27,4 +27,6 @@ Revisions to plan:
 because of only limited options of destinations are provided, user might input some locations that are not included in the codes, so, I use elif argument let the program to re-ask for location when use input somewhere that’s not included.
 In addition to that, I also provide multiple choices for the journey plan, for example, you can go to planet Mars first, then go another planet that you want to, and then, the program will help you calculate the lengths of both routes.
 
+Next Step: 
+have more stations, and might be able to combine pygame with my project. (Only after playing the game, you are able to move on to the next station).
 
