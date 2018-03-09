@@ -28,5 +28,9 @@ because of only limited options of destinations are provided, user might input s
 In addition to that, I also provide multiple choices for the journey plan, for example, you can go to planet Mars first, then go another planet that you want to, and then, the program will help you calculate the lengths of both routes.
 
 Next Step: 
-have more stations, and might be able to combine pygame with my project. (Only after playing the game, you are able to move on to the next station).
+I want to combine my project with Pygame. The Pygame should be like the game asteroid. I will put different images of planets on the game screen. and user's location will be represented by a triangle. when the user input a destination, the triangle will automatically move to the corresponding image of the planet.
 
+test plan:
+1. the locations of the images of planets are indicated by coordinates.
+2. Import Pygame.
+3. download images of planets from internet.
