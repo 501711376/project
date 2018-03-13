@@ -16,7 +16,7 @@ Mr. Aronson
       For example, if you want to travel in the solar system, this program needs first based on the map of the solar system and all the risks that are already known. And also other things what are  important are your current location, time, and where is your final destination. There are infinite amounts of possibilities of routes first. By running this program, based on the information that’s already known, the program also eliminates infinite of route until it finally finds out the optimal route.
   Information about unexpected events, needs to include things like the 3D - coordinates, lasting time, and possibility of occurrence etc.
 
-
+round 2: for the round 2 of the project, I plan to combine my distance calculating project with a pygame similiar to asteroid. I will first put images of planets on the game screen, and have a small triangle representing the location of the user. Then when user input the name of the planet, the program will not only calculate the distance between planets, but also, the small trigangle will automatically move the image of the project.
 
 Test:
 1. run the program, see if the quittable screen will pop up.
