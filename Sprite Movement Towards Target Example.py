@@ -1,14 +1,4 @@
-###################################################################################
-###################################################################################
-# Sprite Movement Towards Target Example
-# programed/documented by Mad Cloud Games
-# contact Mad Cloud Games @ madcloudgames@gmail.com with any comments, questions, or changes
-#
-# This project is released under the GNU General Public License V3
-# This code is open source
-# We would love to know what it gets used for
-###################################################################################
-###################################################################################
+
 
 import pygame, math
 from pygame.locals import *

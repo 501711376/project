@@ -60,8 +60,10 @@ def game_loop():
     y = (display_height * 0.8)
 
     x_change = 0
+    y_change = 0
 
     gameExit = False
+
 
     while not gameExit:
 
@@ -73,14 +75,24 @@ def game_loop():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     x_change = -5
+                if event.key == pygame.K_UP:
+                    y_change = - 5
+
+                if event.key == pygame.K_DOWN:
+                    y_change = +5
                 if event.key == pygame.K_RIGHT:
                     x_change = 5
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
+                if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                     y_change = 0
 
         x += x_change
+        y += y_change
+
+
 
         gameDisplay.fill(white)
         car(x, y)
