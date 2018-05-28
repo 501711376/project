@@ -39,3 +39,11 @@ test plan:
 3. download images of planets from internet.
 4. run the program, see if the quittable screen will pop up.
 5.input the coordinates, see if the triangle will move to the image of the corresponding planet.
+
+Final Project Update 5/27/2018:
+
+Concept: I want to design a program for the purpose of spaceship navigation, the inspiration is from the TV show Star Trek where gigantic spaceships can move to any location in the universe in the blink of an eye. I want to optimize the route so that the spaceship can move even faster. The thing that's original in my mind is that I want to make a map of solar system first, and map out the route of the ship by hand before the space ship starts flying.
+
+Current State: I only only imported the images of spaceship and Mars on a white background map, where you can move the spaceship around using keyboard. The issue of it is that it can't calculate and map out the optimal route, because you can only use keyboard to move the ship. The way my code works is easy, you just use "up" "down" "left" and "right" keys to move the spaceship around freely.
+
+Future Possibility: my project now is still pretty sketchy - literally. If I can work on this as a profession in the future, I think I will need to create a 3D Model of the universe first, and import all the data of the planets and celestial bodies that are known, such as location, size etc. And then, based on the already known data, I can use certain algorithm that I developed to calculate the optimal route.
