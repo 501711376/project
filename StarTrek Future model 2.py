@@ -1,18 +1,25 @@
-###################################################################################
-###################################################################################
-# Sprite Movement Towards Target Example + Physics
-# programed/documented by Mad Cloud Games
-# contact Mad Cloud Games @ madcloudgames@gmail.com with any comments, questions, or changes
-#
-# This project is released under the GNU General Public License V3
-# This code is open source
-# We would love to know what it gets used for
-###################################################################################
-###################################################################################
 
+
+import pygame
+from pygame.locals import *
+import sys, pygame
+pygame.init()
+
+import pygame
+import time
+
+pygame.init()
 import pygame, math
 from pygame.locals import *
 pygame.init()
+carImg = pygame.image.load('ball.bmp')
+display_width = 1000
+display_height = 600
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+
+
+def car(x, y):
+    gameDisplay.blit(carImg, (x, y))
 
 class Vector():
     '''
@@ -58,18 +65,15 @@ class Sprite(pygame.sprite.Sprite):
         Parameters:
             - self
         '''
-        self.image = pygame.image.load("Images/green.png").convert() # load image
+        self.image = pygame.image.load("ball.bmp").convert() # load image
         self.rect = self.image.get_rect()
 
         self.trueX = 100 # created because self.rect.center does not hold
         self.trueY = 100 # decimal values but these do
         self.rect.center = (self.trueX, self.trueY) # set starting position
-        self.speed = 3 # movement speed of the sprite
+        self.speed = 10 # movement speed of the sprite
         self.speedX = 0 # speed in x direction
         self.speedY = 0 # speed in y direction
-
-        self.normal_friction = .95 # friction while accelerating
-        self.slowing_friction = .8 # friction while slowing down
 
         self.target = None # starts off with no target
 
@@ -78,7 +82,7 @@ class Sprite(pygame.sprite.Sprite):
         Function:
             takes total distance from sprite.center
             to the sprites target
-            (gets direction to move)
+            (gets direction to move)    
         Returns:
             a normalized vector
         Parameters:
@@ -140,38 +144,31 @@ class Sprite(pygame.sprite.Sprite):
         self.dir = self.get_direction(self.target) # get direction
         if self.dir: # if there is a direction to move
             
-            if self.distance_check(self.dist): # if we need to slow down
-                self.speedX += (self.dir[0] * (self.speed / 2)) # reduced speed
-                self.speedY += (self.dir[1] * (self.speed / 2))
-                self.speedX *= self.slowing_friction # increased friction
-                self.speedY *= self.slowing_friction
+            if self.distance_check(self.dist): # if we need to stop
+                self.rect.center = self.target # center the sprite on the target
                 
-            else: # if we need to go normal speed
-                self.speedX += (self.dir[0] * self.speed) # calculate speed from direction to move and speed constant
-                self.speedY += (self.dir[1] * self.speed)
-                self.speedX *= self.normal_friction # apply friction
-                self.speedY *= self.normal_friction
-
-            self.trueX += self.speedX # store true x decimal values
-            self.trueY += self.speedY
-            self.rect.center = (round(self.trueX),round(self.trueY)) # apply values to sprite.center
-                
+            else: # if we need to move normal
+                self.trueX += (self.dir[0] * self.speed) # calculate speed from direction to move and speed constant
+                self.trueY += (self.dir[1] * self.speed)
+                self.rect.center = (round(self.trueX),round(self.trueY)) # apply values to sprite.center
+                    
     
 
 def main():
 
     screen = pygame.display.set_mode((640,480))
-    pygame.display.set_caption("Sprite Movement Towards Target Example With Physics - Mad Cloud Games")
+    pygame.display.set_caption("Sprite Movement Towards Target Example - Mad Cloud Games")
     background_color = pygame.Surface(screen.get_size()).convert()
-    background_color.fill((240,50,0))
+    background_color.fill((20,50,100))
 
     line_points = [] # make a list for points
     line_color = (0, 255, 255) # color of the lines
-
+    
     sprite = Sprite() # create the sprite
 
     clock = pygame.time.Clock()
     running = True
+    car(600, 100)
 
     while running:
         clock.tick(30)
@@ -183,13 +180,12 @@ def main():
             if event.type == MOUSEBUTTONDOWN:
                 sprite.target = event.pos # set the sprite.target to the mouse click position
                 line_points.append(event.pos) # add that point to the line list
-                
+
         screen.blit(background_color, (0,0))
-        
         
         sprite.update() # update the sprite
         screen.blit(sprite.image, sprite.rect.topleft) # blit the sprite to the screen
-        
+
         if len(line_points) > 1: # if there are enough points to draw a line
             pygame.draw.lines(screen, line_color, False, line_points, 2) # surface, color of lines, uhh, points of lines, width of lines)
 

@@ -1,3 +1,4 @@
+
 import pygame
 from pygame.locals import *
 import sys, pygame
@@ -26,12 +27,21 @@ carImg = pygame.image.load('ball.bmp')
 
 Marimg = pygame.image.load('mars.jpeg')
 
+Pavimg = pygame.image.load('earth.jpeg')
+
+venus = pygame.image.load('venus.jpeg')
+
 def Mars(x,y):
     gameDisplay.blit(Marimg, (x-130, y-400))
 
 def car(x, y):
     gameDisplay.blit(carImg, (x, y))
 
+def Pavoimg(x, y):
+    gameDisplay.blit(Pavimg, (x - 950, y - 300))
+
+def venusimg(x, y):
+    gameDisplay.blit(venus, (x - 650, y - 500))
 
 def text_objects(text, font):
     textSurface = font.render(text, True, black)
@@ -97,6 +107,9 @@ def game_loop():
         gameDisplay.fill(white)
         car(x, y)
         Mars(z, c)
+        Pavoimg(z,c)
+        venusimg(z,c)
+
 
 
 
@@ -107,8 +120,6 @@ def game_loop():
         clock.tick(60)
 
 game_loop()
-pygame.quit()
-quit()
 
 mars = (12, 23, 34)
 pavo = (211, 23, 432)
@@ -150,6 +161,7 @@ def navigate():
     elif choice != "mars" or "pavo":
         print("destination name isn't corret, please enter again.")
         navigate()
+
 
 
 navigate()
